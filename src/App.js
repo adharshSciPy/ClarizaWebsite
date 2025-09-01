@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Enterprise from "./components/Enterprise"
 
 function App() {
  
@@ -35,7 +36,7 @@ function App() {
       <Routes>
         <Route path="/pricing" element={<h1>Pricing Page</h1>} />
         <Route path="/careers" element={<h1>Careers Page</h1>} />
-        <Route path="/enterprise" element={<h1>Enterprise Page</h1>} />
+        <Route path="/enterprise" element={<Enterprise/>} />
         <Route path="/help-center" element={<h1>Help Center</h1>} />
       </Routes>
     </div>
