@@ -5,8 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Enterprise from "./pages/EnterPrise/Enterprise"
 
+import PricingPage from "./pages/Pricing.jsx";
+
 function App() {
- 
+
   const getInitialTheme = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) return savedTheme;
@@ -19,11 +21,11 @@ function App() {
   const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-  
+
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  
+
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
@@ -31,16 +33,16 @@ function App() {
 
   return (
     <div className="App">
-     
+
       <Header theme={theme} setTheme={handleThemeChange} />
 
       <Routes>
-        <Route path="/pricing" element={<h1>Pricing Page</h1>} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/careers" element={<h1>Careers Page</h1>} />
         <Route path="/enterprise" element={<Enterprise/>} />
         <Route path="/help-center" element={<h1>Help Center</h1>} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
