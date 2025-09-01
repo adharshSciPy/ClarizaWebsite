@@ -17,7 +17,7 @@ export default function Header({ theme, setTheme }) {
         <nav className={styles["nav-links"]}>
           <Link to="/pricing">Pricing</Link>
           <Link to="#">Careers</Link>
-          <Link to="#">Enterprise</Link>
+          <Link to="/enterprise">Enterprise</Link>
           <Link to="#">Help Center</Link>
         </nav>
 
