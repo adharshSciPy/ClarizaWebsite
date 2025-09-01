@@ -1,0 +1,115 @@
+/* Add this to your App.css or main CSS file */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  /* This will take up all available space, pushing footer to bottom */
+}
+
+/* Footer Styles */
+.footer {
+  padding: 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color); 
+}
+
+.column p,
+.column a {
+  margin: 0.3rem 0;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  line-height: 1.5;
+}
+
+.column a:hover {
+  color: var(--accent-color);
+}
+
+.bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 0.75rem;
+  }
+  
+  .container {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .column h3 {
+    font-size: 0.9rem;
+  }
+  
+  .column p,
+  .column a {
+    font-size: 0.85rem;
+  }
+}

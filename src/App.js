@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
  
@@ -38,6 +39,7 @@ function App() {
         <Route path="/enterprise" element={<h1>Enterprise Page</h1>} />
         <Route path="/help-center" element={<h1>Help Center</h1>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
