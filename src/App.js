@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import Enterprise from "./components/Enterprise"
+import Enterprise from "./pages/EnterPrise/Enterprise"
 
 import PricingPage from "./pages/Pricing.jsx";
 
