@@ -7,6 +7,7 @@ import Icon3 from "../assets/Icon3.png"
 import Icon4 from "../assets/Icon4.png"
 import Icon5 from "../assets/Icon5.png"
 import { Link } from "react-router-dom"
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
 
@@ -14,6 +15,21 @@ const PricingPage = () => {
     const [openIndex, setOpenIndex] = useState(null);
     const [isYearly, setIsYearly] = useState(false);
     const [price, setPrice] = useState(20);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const plans = [
+        { name: "Starter", key: "starter", button: "Download For Windows" },
+        { name: "Pro", key: "pro", button: "Download For Windows" },
+        { name: "Enterprise", key: "enterprise", button: "Talk to Sales" },
+    ];
+
+    const handlePrev = () => {
+        setActiveIndex((prev) => (prev === 0 ? plans.length - 1 : prev - 1));
+    };
+
+    const handleNext = () => {
+        setActiveIndex((prev) => (prev === plans.length - 1 ? 0 : prev + 1));
+    };
 
     // Animate price like a rolling meter
     useEffect(() => {
@@ -218,56 +234,34 @@ const PricingPage = () => {
                 ))}
             </section>
 
-            <div className={styles.featuresTable}>
+            {/* ====== Features Comparison Table (Desktop) ====== */}
+            <div className={`${styles.featuresTable} ${styles.desktopOnly}`}>
                 <div className={styles.tableHeader}>
                     <div><p>Features</p></div>
-                    <div>
-                        <p>Starter</p>
-                        <button>Download For Windows</button>
-                    </div>
-
-                    <div><p>Pro</p>
-                        <button>Download For Windows</button></div>
-                    <div><p>Enterprise</p>
-                        <button>Talk to Sales</button></div>
+                    {plans.map((plan, i) => (
+                        <div key={i}>
+                            <p>{plan.name}</p>
+                            <button>{plan.button}</button>
+                        </div>
+                    ))}
                 </div>
 
                 {features.map((feature, index) => (
                     <div key={index} className={styles.tableRow}>
                         <div className={styles.featureName}>{feature.name}</div>
-                        <div className={styles.featureValue}>
-                            {typeof feature.starter === 'boolean' ? (
-                                feature.starter ? (
-                                    <span className={styles.check}><CheckIcon /></span>
+                        {plans.map((plan, i) => (
+                            <div key={i} className={styles.featureValue}>
+                                {typeof feature[plan.key] === "boolean" ? (
+                                    feature[plan.key] ? (
+                                        <span className={styles.check}><CheckIcon /></span>
+                                    ) : (
+                                        <span className={styles.cross}><XIcon /></span>
+                                    )
                                 ) : (
-                                    <span className={styles.cross}><XIcon /></span>
-                                )
-                            ) : (
-                                feature.starter
-                            )}
-                        </div>
-                        <div className={styles.featureValue}>
-                            {typeof feature.pro === 'boolean' ? (
-                                feature.pro ? (
-                                    <span className={styles.check}><CheckIcon /></span>
-                                ) : (
-                                    <span className={styles.cross}><XIcon /></span>
-                                )
-                            ) : (
-                                feature.pro
-                            )}
-                        </div>
-                        <div className={styles.featureValue}>
-                            {typeof feature.enterprise === 'boolean' ? (
-                                feature.enterprise ? (
-                                    <span className={styles.check}><CheckIcon /></span>
-                                ) : (
-                                    <span className={styles.cross}><XIcon /></span>
-                                )
-                            ) : (
-                                feature.enterprise
-                            )}
-                        </div>
+                                    feature[plan.key]
+                                )}
+                            </div>
+                        ))}
                     </div>
                 ))}
 
@@ -279,41 +273,77 @@ const PricingPage = () => {
                             {feature.name}
                             {feature.badge && <span className={styles.featureBadge}>{feature.badge}</span>}
                         </div>
-                        <div className={styles.featureValue}>
-                            {typeof feature.starter === 'boolean' ? (
-                                feature.starter ? (
-                                    <span className={styles.check}><CheckIcon /></span>
+                        {plans.map((plan, i) => (
+                            <div key={i} className={styles.featureValue}>
+                                {typeof feature[plan.key] === "boolean" ? (
+                                    feature[plan.key] ? (
+                                        <span className={styles.check}><CheckIcon /></span>
+                                    ) : (
+                                        <span className={styles.cross}><XIcon /></span>
+                                    )
                                 ) : (
-                                    <span className={styles.cross}><XIcon /></span>
-                                )
-                            ) : (
-                                feature.starter
-                            )}
-                        </div>
-                        <div className={styles.featureValue}>
-                            {typeof feature.pro === 'boolean' ? (
-                                feature.pro ? (
-                                    <span className={styles.check}><CheckIcon /></span>
-                                ) : (
-                                    <span className={styles.cross}><XIcon /></span>
-                                )
-                            ) : (
-                                feature.pro
-                            )}
-                        </div>
-                        <div className={styles.featureValue}>
-                            {typeof feature.enterprise === 'boolean' ? (
-                                feature.enterprise ? (
-                                    <span className={styles.check}><CheckIcon /></span>
-                                ) : (
-                                    <span className={styles.cross}><XIcon /></span>
-                                )
-                            ) : (
-                                feature.enterprise
-                            )}
-                        </div>
+                                    feature[plan.key]
+                                )}
+                            </div>
+                        ))}
                     </div>
                 ))}
+            </div>
+
+            {/* ====== Mobile Carousel Version ====== */}
+            <div className={`${styles.mobileCarousel}`}>
+                <button onClick={handlePrev} className={styles.navButton}>
+                    <ChevronLeft />
+                </button>
+
+                <div className={styles.carouselCard}>
+                    <h3>{plans[activeIndex].name}</h3>
+                    <button>{plans[activeIndex].button}</button>
+
+                    <div className={styles.featuresList}>
+                        {features.map((feature, index) => (
+                            <div key={index} className={styles.featureRow}>
+                                <span>{feature.name}</span>
+                                <span>
+                                    {typeof feature[plans[activeIndex].key] === "boolean" ? (
+                                        feature[plans[activeIndex].key] ? (
+                                            <CheckIcon />
+                                        ) : (
+                                            <XIcon />
+                                        )
+                                    ) : (
+                                        feature[plans[activeIndex].key]
+                                    )}
+                                </span>
+                            </div>
+                        ))}
+
+                        <h4 className={styles.sectionTitle}>Platform</h4>
+                        {platformFeatures.map((feature, index) => (
+                            <div key={index} className={styles.featureRow}>
+                                <span>
+                                    {feature.name}
+                                    {feature.badge && <span className={styles.featureBadge}>{feature.badge}</span>}
+                                </span>
+                                <span>
+                                    {typeof feature[plans[activeIndex].key] === "boolean" ? (
+                                        feature[plans[activeIndex].key] ? (
+                                            <CheckIcon />
+                                        ) : (
+                                            <XIcon />
+                                        )
+                                    ) : (
+                                        feature[plans[activeIndex].key]
+                                    )}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <button onClick={handleNext} className={styles.navButton}>
+                    <ChevronRight />
+                </button>
             </div>
 
         </div>
