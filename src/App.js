@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Enterprise from "./pages/EnterPrise/Enterprise"
 
 import PricingPage from "./pages/Pricing.jsx";
+import Careers from "./pages/Careers";
 
 function App() {
 
@@ -13,8 +14,9 @@ function App() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) return savedTheme;
 
-
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     return prefersDark ? "dark" : "light";
   };
 
@@ -38,7 +40,7 @@ function App() {
 
       <Routes>
         <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/careers" element={<h1>Careers Page</h1>} />
+        <Route path="/careers" element={<Careers/>}/>
         <Route path="/enterprise" element={<Enterprise/>} />
         <Route path="/help-center" element={<h1>Help Center</h1>} />
       </Routes>

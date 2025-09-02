@@ -17,9 +17,11 @@ main {
 }
 
 /* Footer Styles */
+
 .footer {
   padding: 2rem;
-  background: var(--bg-color);
+ background: var(--footer-gradient);
+  border-top: none;
   color: var(--text-color);
   transition: all 0.3s ease;
   margin-top: auto;
@@ -27,6 +29,7 @@ main {
   width: 100%;
   box-sizing: border-box;
 }
+
 
 .container {
   display: grid;
@@ -41,7 +44,7 @@ main {
 .column h3 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  color: var(--primary-color); 
+  color: var(--accent-color); 
 }
 
 .column p,

@@ -1,6 +1,6 @@
 /* Light mode (default) */
 :root {
-  --bg-gradient: linear-gradient(180deg, #E2E9FD, #F1E8FE);
+  --bg-gradient: linear-gradient(180deg, #e2e9fd, #f1e8fe);
   --bg-color: #ffffff;
   --text-color: #111111;
   --primary-color: #007bff;
@@ -10,7 +10,7 @@
 
 /* Dark mode */
 [data-theme="dark"] {
-  --bg-gradient: linear-gradient(180deg, #0C0C0C, #270A46, #000000);
+  --bg-gradient: linear-gradient(180deg, #0c0c0c, #270a46, #000000);
   --bg-color: #1a1a1a;
   --text-color: #f5f5f5;
   --primary-color: #1e90ff;
@@ -34,7 +34,8 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
   background: var(--bg-gradient);
   color: var(--text-color);
   transition: all 0.3s ease;
@@ -60,57 +61,133 @@ button:hover {
   opacity: 0.9;
 }
 
+/* /////////////////////// */
 
-
-/* Page Layout */
 .pricingContainer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: var(--bg-gradient);
-  color: var(--text-color);
+  align-items: center;
+  width: 100%;
 }
 
 /* Hero */
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 4rem 1rem 2rem;
 }
 
 .hero h1 {
   font-size: 2.8rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .sectionTitle {
-  color: var(--accent-color);
+  color: purple;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .subHeading {
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  z-index: 3;
+  text-align: center;
 }
 
-/* Plans */
-.plans {
+/* Laptop Section */
+.laptopSection {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.laptopWrapper {
+  position: relative;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding: 3rem 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.laptopImage {
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1;
+  position: relative;
+}
+
+/* Floating Icons */
+.icon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  animation: float 4s infinite ease-in-out;
+  z-index: 2;
+}
+.icon1 {
+  top: 20%;
+  left: 10%;
+}
+.icon2 {
+  top: 10%;
+  right: 15%;
+}
+.icon3 {
+  bottom: 20%;
+  left: 5%;
+}
+.icon4 {
+  bottom: 25%;
+  right: 5%;
+}
+.icon5 {
+  bottom: 0%;
+  left: 20%;
+  transform: translateX(-50%);
+}
+.icon6 {
+  bottom: 0%;
+  right: 25%;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Plans inside laptop */
+.plans {
+  position: absolute;
+  top: 25%;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  z-index: 3;
 }
 
 .planCard {
-  background: var(--bg-color);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
+  flex: 1;
+  min-width: 250px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s;
+  backdrop-filter: blur(12px);
+  color: white;
+  text-align: left;
 }
 
 .planCard:hover {
@@ -119,59 +196,54 @@ button:hover {
 
 .planCard h3 {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent-color);
+  margin-bottom: 0.8rem;
+  color: white;
 }
 
-.planCard p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+.planCard h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
 }
 
-.planCard ul {
-  text-align: left;
-  margin: 1rem 0;
-  list-style: none;
+.planCard h3 {
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+  font-variant-numeric: tabular-nums; /* keeps numbers aligned like a meter */
 }
 
-.planCard ul li {
-  margin-bottom: 0.5rem;
-}
-
-/* Custom Buttons */
-.btnDark {
-  background: var(--primary-color);
+/* Buttons */
+.planLink {
   color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
 }
 
-.btnOutline {
-  background: transparent;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color);
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
+.planLink:hover {
+  color: white;
 }
 
 /* Features */
 .features {
   background: var(--bg-color);
   padding: 3rem 1rem;
-  margin: 2rem auto;
+  margin: 3rem auto;
   border-radius: 16px;
-  max-width: 800px;
+  max-width: 1000px; /* ✅ instead of fixed width */
+  width: 100%;
   border: 1px solid var(--border-color);
+  text-align: center;
 }
 
 .features h3 {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--accent-color);
+  color: purple;
 }
 
 .features details {
@@ -180,31 +252,270 @@ button:hover {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.features details:hover {
-  background: rgba(0, 123, 255, 0.05);
-}
-
-/* Responsiveness */
 @media (max-width: 768px) {
-  .plans {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
+  .features {
+    padding: 2rem 1rem;
+    border-radius: 12px;
   }
 }
 
 @media (max-width: 480px) {
+  .features {
+    padding: 1.5rem 0.5rem;
+    border-radius: 8px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .plans {
+    top: 20%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .plans {
+    width: 100%;
+    top: 15%;
   }
 
   .planCard {
-    width: 100%;
+    width: 90%;
+  }
+
+  .icon {
+    width: 40px;
+  }
+}
+
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 26px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.activeLabel {
+  color: #007bff;
+}
+
+/* //////// */
+
+.featuresTable {
+  max-width: 1000px;
+  width: 100%;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  overflow-y: auto;
+  margin: 2rem auto;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  background: var(--secondary-bg);
+  padding: 1.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.featureName {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featureBadge {
+  background: var(--primary-color);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+}
+
+.featureValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+}
+
+.featureValue.check {
+  color: var(--success-color);
+}
+
+.featureValue.cross {
+  color: var(--muted-color);
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  padding: 0 1.5rem;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1.5rem;
+  }
+
+  .featureName {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Hide desktop table on mobile */
+.desktopOnly {
+  display: block;
+}
+.mobileCarousel {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none;
+  }
+  .mobileCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 1rem 0;
+  }
+
+  .carouselCard {
+    flex: 1;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 260px;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .carouselCard h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .featuresList {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+  }
+
+  .featureRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 4px;
+  }
+
+  .navButton {
+    background: var(--primary-color);
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
   }
 }
