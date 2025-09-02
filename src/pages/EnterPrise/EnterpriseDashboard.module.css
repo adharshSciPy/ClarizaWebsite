@@ -12,7 +12,6 @@
 
 /* Light theme styles */
 .container.light {
-  /* background: linear-gradient(180deg, #E2E9FD, #F1E8FE); */
   color: #111111;
 }
 
@@ -74,10 +73,6 @@
   line-height: 1.1;
 }
 
-/* .container.light .mainTitle {
-  background-color: black;
-} */
-
 .container.dark .mainTitle {
   background: white;
   -webkit-background-clip: text;
@@ -113,16 +108,19 @@
 .laptop {
   position: relative;
   transform-style: preserve-3d;
+  max-width: 100%;
 }
 
 .laptop img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  max-width: 800px;
 }
 
 .laptopScreen {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 280px;
   border-radius: 20px 20px 8px 8px;
   margin: 0 auto;
@@ -143,7 +141,8 @@
 }
 
 .laptopBase {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   height: 20px;
   border-radius: 0 0 15px 15px;
   margin: 0 auto;
@@ -361,53 +360,199 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  padding: 20px 0;
-  max-width: 1000px;
+  padding: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: -2px 0 6px rgba(255, 255, 255, 0.2),
+    2px 0 6px rgba(255, 255, 255, 0.2),
+    0 -2px 6px rgba(255, 255, 255, 0.2);
+}
+
+.featuresGridTwo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 60px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+.featuresGridThree {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCardThree {
+  padding: 20px 10px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  text-align: left;
+  position: relative;
+  padding-left: 30px;
+}
+
+.container.dark .featuresGrid {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: linear-gradient(
+    to bottom,
+    rgb(83, 82, 82, 0.3),
+    rgba(39, 39, 39, 0.1)
+  );
+}
+
+.container.dark .featuresGridFour {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: linear-gradient(
+    to bottom,
+    rgb(83, 82, 82, 0.4),
+    rgba(39, 39, 39, 0.1)
+  );
+  box-shadow: -2px 0 20px rgba(255, 255, 255, 0.2),
+    2px 0 20px rgba(255, 255, 255, 0.2),
+    0 -2px 20px rgba(255, 255, 255, 0.2);
+}
+
 .featureCard {
+  display: flex;
+  flex-direction: column;
   padding: 40px 30px;
   border-radius: 20px;
   transition: all 0.4s ease;
   backdrop-filter: blur(10px);
   text-align: center;
   position: relative;
-  
-  /* Base card styles */
-  
-  /* Enhanced shadow to match the image */
-  box-shadow: 
-    0 8px 32px rgba(89, 29, 221, 0.12),     /* Main purple drop shadow */
-    0 4px 16px rgba(89, 29, 221, 0.08),     /* Mid-level shadow */
-    0 2px 8px rgba(89, 29, 221, 0.04),      /* Close shadow */
-    inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Subtle inner highlight */
+  justify-content: space-around;
+  box-shadow: 0 8px 32px rgba(89, 29, 221, 0.12),
+    0 4px 16px rgba(89, 29, 221, 0.08),
+    0 2px 8px rgba(89, 29, 221, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.featureCardFirst {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 60px 40px 60px;
+  text-align: left;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  justify-content: space-around;
+  box-shadow: 0 8px 32px rgba(89, 29, 221, 0.12),
+    0 4px 16px rgba(89, 29, 221, 0.08),
+    0 2px 8px rgba(89, 29, 221, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.featuresGridFour {
+  margin-top: 100px;
+  padding: 20px 30px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(89, 29, 221, 0.12),
+    0 4px 16px rgba(89, 29, 221, 0.08),
+    0 2px 8px rgba(89, 29, 221, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Light theme specific */
 .container.light .featureCard {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  );
   border: 1px solid rgba(89, 29, 221, 0.25);
-  
-  box-shadow: 
-    0 12px 40px rgba(89, 29, 221, 0.25),    /* Primary shadow with purple tint */
-    0 8px 25px rgba(89, 29, 221, 0.15),      /* Secondary shadow */
-    0 4px 12px rgba(89, 29, 221, 0.5),     /* Tertiary shadow */
-    inset 0 1px 0 rgba(255, 255, 255, 0.26), /* Inner top highlight */
-    inset 0 -1px 0 rgba(89, 29, 221, 0.05); /* Inner bottom shadow */
+  box-shadow: 0 12px 40px rgba(89, 29, 221, 0.25),
+    0 8px 25px rgba(89, 29, 221, 0.15),
+    0 4px 12px rgba(89, 29, 221, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -1px 0 rgba(89, 29, 221, 0.05);
+}
+
+.container.light .featureCardFirst {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  );
+  border: 1px solid rgba(89, 29, 221, 0.25);
+  box-shadow: 0 12px 40px rgba(89, 29, 221, 0.25),
+    0 8px 25px rgba(89, 29, 221, 0.15),
+    0 4px 12px rgba(89, 29, 221, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -1px 0 rgba(89, 29, 221, 0.05);
+}
+
+.container.light .featureCardThree {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  );
+  border: 1px solid rgba(89, 29, 221, 0.25);
+  box-shadow: 0 12px 40px rgba(89, 29, 221, 0.25),
+    0 8px 25px rgba(89, 29, 221, 0.15),
+    0 4px 12px rgba(89, 29, 221, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -1px 0 rgba(89, 29, 221, 0.05);
 }
 
 /* Dark theme specific */
 .container.dark .featureCard {
-  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(20, 20, 20, 0.8));
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.9),
+    rgba(20, 20, 20, 0.8)
+  );
   border: 1px solid rgba(89, 29, 221, 0.2);
-  
-  box-shadow: 
-    0 6px 15px rgba(89, 29, 221, 0.6),     /* Purple-tinted shadow for dark */
-    0 8px 25px rgba(0, 0, 0, 0.8),          /* Deep black shadow */
-    0 4px 12px rgba(0, 0, 0, 0.3),          /* Close black shadow */
-    inset 0 1px 0 rgba(255, 255, 255, 0.25), /* Subtle inner highlight */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);      /* Inner bottom shadow */
+  box-shadow: 0 6px 15px rgba(89, 29, 221, 0.6),
+    0 8px 25px rgba(0, 0, 0, 0.8),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.container.dark .featureCardFirst {
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.9),
+    rgba(20, 20, 20, 0.8)
+  );
+  border: 1px solid rgba(89, 29, 221, 0.2);
+  box-shadow: 0 6px 15px rgba(89, 29, 221, 0.6),
+    0 8px 25px rgba(0, 0, 0, 0.8),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.container.dark .featureCardThree {
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.9),
+    rgba(20, 20, 20, 0.8)
+  );
+  border: 1px solid rgba(89, 29, 221, 0.2);
+  box-shadow: 0 6px 15px rgba(89, 29, 221, 0.6),
+    0 8px 25px rgba(0, 0, 0, 0.8),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Hover effects */
@@ -415,26 +560,57 @@
   transform: translateY(-12px) scale(1.02);
 }
 
+.featureCardFirst:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+.featureCardThree:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
 .container.light .featureCard:hover {
   border-color: rgba(89, 29, 221, 0.3);
-  
-  box-shadow: 
-    0 20px 60px rgba(89, 29, 221, 0.2),     /* Enhanced purple shadow */
-    0 12px 35px rgba(89, 29, 221, 0.15),    /* Mid-level enhanced */
-    0 6px 18px rgba(89, 29, 221, 0.1),      /* Close enhanced */
-    inset 0 1px 0 rgba(255, 255, 255, 0.3), /* Stronger inner highlight */
-    inset 0 -1px 0 rgba(89, 29, 221, 0.08); /* Enhanced inner shadow */
+  box-shadow: 0 20px 60px rgba(89, 29, 221, 0.2),
+    0 12px 35px rgba(89, 29, 221, 0.15),
+    0 6px 18px rgba(89, 29, 221, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(89, 29, 221, 0.08);
+}
+
+.container.light .featureCardFirst:hover {
+  border-color: rgba(89, 29, 221, 0.3);
+  box-shadow: 0 20px 60px rgba(89, 29, 221, 0.2),
+    0 12px 35px rgba(89, 29, 221, 0.15),
+    0 6px 18px rgba(89, 29, 221, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(89, 29, 221, 0.08);
 }
 
 .container.dark .featureCard:hover {
   border-color: rgba(89, 29, 221, 0.4);
-  
-  box-shadow: 
-    0 25px 70px rgba(89, 29, 221, 0.25),    /* Strong purple glow */
-    0 15px 45px rgba(0, 0, 0, 0.5),         /* Deep shadow */
-    0 8px 25px rgba(0, 0, 0, 0.4),          /* Close shadow */
-    inset 0 1px 0 rgba(255, 255, 255, 0.08), /* Inner highlight */
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);      /* Inner shadow */
+  box-shadow: 0 25px 70px rgba(89, 29, 221, 0.25),
+    0 15px 45px rgba(0, 0, 0, 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.container.dark .featureCardFirst:hover {
+  border-color: rgba(89, 29, 221, 0.4);
+  box-shadow: 0 25px 70px rgba(89, 29, 221, 0.25),
+    0 15px 45px rgba(0, 0, 0, 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.container.dark .featureCardThree:hover {
+  border-color: rgba(89, 29, 221, 0.4);
+  box-shadow: 0 25px 70px rgba(89, 29, 221, 0.25),
+    0 15px 45px rgba(0, 0, 0, 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .featureIcon {
@@ -448,6 +624,7 @@
   margin: 0 auto 20px;
   box-shadow: 0 8px 25px rgba(89, 29, 221, 0.25);
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .container.dark .featureIcon {
@@ -467,9 +644,20 @@
 }
 
 .featureTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 100;
   margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-underline-offset: 5px;
+}
+
+.linkStyle {
+  color: white;
+  text-decoration: none;
+}
+
+.container.light .linkStyle {
+  color: black;
 }
 
 .container.light .featureTitle {
@@ -486,6 +674,11 @@
   opacity: 0.8;
 }
 
+.featureDescThree {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
 .container.light .featureDesc {
   color: #666666;
 }
@@ -494,33 +687,588 @@
   color: #cccccc;
 }
 
+.wrapperTwo {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faqItem {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #CACFF4;
+  overflow: hidden;
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqHeader {
+  padding: 18px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.faqHeader:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.faqQuestion {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 400;
+  color: #374151;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+  padding-right: 1rem;
+}
+
+.container.dark .faqQuestion {
+  color: white;
+}
+
+.faqIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  color: white;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.faqIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.faqContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: transparent;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.container.dark .faqAnswer {
+  color: white;
+}
+
+.faqContent.expanded {
+  max-height: 300px;
+  padding-bottom: 24px;
+}
+
+.faqAnswer {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.faqItem.active .faqQuestion {
+  color: #374151;
+}
+
+.container.dark .faqItem.active .faqQuestion {
+  color: white;
+}
+
+.faqItem.active .faqIcon {
+  color: #374151;
+}
+
 /* ==========================
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ========================== */
-@media (max-width: 768px) {
+
+/* Large Desktop */
+@media (min-width: 1200px) {
   .wrapper {
-    padding: 40px 15px;
+    padding: 60px 40px;
+  }
+  
+  .featuresGrid {
+    padding: 80px;
+    gap: 40px;
+  }
+  
+  .featuresGridTwo {
+    padding: 80px;
+    gap: 40px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .mainTitle {
+    font-size: 3.5rem;
+  }
+  
+  .featuresGrid {
+    padding: 50px;
+  }
+  
+  .featuresGridTwo {
+    padding: 50px;
+  }
+}
+
+/* Small Desktop / Large Tablet - FIXED THE GAP */
+@media (min-width: 768px) and (max-width: 991px) {
+  .wrapper {
+    padding: 30px 15px;
+  }
+
+  .header {
+    margin-bottom: 50px;
   }
 
   .mainTitle {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+
+  .first {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .laptopSection {
+    margin-bottom: 60px;
+  }
+
+  .laptop img {
+    max-width: 500px;
   }
 
   .laptopScreen {
-    width: 320px;
+    max-width: 320px;
     height: 220px;
   }
 
   .laptopBase {
-    width: 340px;
+    max-width: 340px;
+  }
+
+  .screenTitle {
+    font-size: 1.4rem;
   }
 
   .featuresGrid {
     grid-template-columns: 1fr;
+    padding: 30px 20px;
     gap: 20px;
+  }
+
+  .featuresGridTwo {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+
+  .featuresGridThree {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
   }
 
   .featureCard {
     padding: 30px 25px;
+  }
+
+  .featureCardFirst {
+    padding: 30px 25px;
+  }
+
+  .featureCardThree {
+    padding: 20px 25px;
+  }
+
+  .bottomTitle {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .wrapperTwo {
+    padding: 40px 15px;
+  }
+
+  .faqQuestion {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Large - 576px to 767px */
+@media (min-width: 576px) and (max-width: 767px) {
+  .container {
+    padding: 15px;
+  }
+
+  .wrapper {
+    padding: 25px 15px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .mainTitle {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .first {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  .laptopSection {
+    margin-bottom: 50px;
+  }
+
+  .laptop img {
+    max-width: 400px;
+  }
+
+  .laptopScreen {
+    max-width: 280px;
+    height: 200px;
+  }
+
+  .laptopBase {
+    max-width: 300px;
+  }
+
+  .screenTitle {
+    font-size: 1.2rem;
+  }
+
+  .screenContent {
+    inset: 15px;
+  }
+
+  .dashboard {
+    height: 140px;
+  }
+
+  .chartArea {
+    margin-left: 60px;
+  }
+
+  .sidebar {
+    width: 45px;
+    padding: 12px 6px;
+  }
+
+  .sidebarItem {
+    width: 28px;
+    height: 28px;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    padding: 25px 15px;
+    gap: 20px;
+  }
+
+  .featuresGridTwo {
+    grid-template-columns: 1fr;
+    padding: 25px 15px;
+    gap: 20px;
+  }
+
+  .featuresGridThree {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .featureCard {
+    padding: 25px 20px;
+  }
+
+  .featureCardFirst {
+    padding: 25px 20px;
+  }
+
+  .featureCardThree {
+    padding: 20px;
+  }
+
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .featureTitle {
+    font-size: 15px;
+  }
+
+  .featureDesc {
+    font-size: 0.9rem;
+  }
+
+  .bottomTitle {
+    font-size: 1.5rem;
+    margin-bottom: 35px;
+  }
+
+  .wrapperTwo {
+    padding: 35px 15px;
+  }
+
+  .faqQuestion {
+    font-size: 15px;
+  }
+
+  .faqAnswer {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Small - up to 575px */
+@media (max-width: 575px) {
+  .container {
+    padding: 10px;
+  }
+
+  .wrapper {
+    padding: 20px 10px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+  }
+
+  .first {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .laptopSection {
+    margin-bottom: 40px;
+  }
+
+  .laptop img {
+    max-width: 320px;
+  }
+
+  .laptopScreen {
+    max-width: 240px;
+    height: 170px;
+  }
+
+  .laptopBase {
+    max-width: 260px;
+  }
+
+  .screenTitle {
+    font-size: 1rem;
+  }
+
+  .screenContent {
+    inset: 12px;
+  }
+
+  .screenHeader {
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .apiIndicator {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .dashboard {
+    height: 120px;
+  }
+
+  .chartArea {
+    margin-left: 50px;
+  }
+
+  .sidebar {
+    width: 40px;
+    padding: 10px 5px;
+  }
+
+  .sidebarItem {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sidebarIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .statNumber {
+    font-size: 1.4rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .featuresGridTwo {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .featuresGridThree {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .featureCard {
+    padding: 20px 15px;
+  }
+
+  .featureCardFirst {
+    padding: 20px 15px;
+  }
+
+  .featureCardThree {
+    padding: 15px;
+  }
+
+  .featureIcon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .featureTitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .featureDesc,
+  .featureDescThree {
+    font-size: 0.85rem;
+  }
+
+  .bottomTitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+
+  .wrapperTwo {
+    padding: 30px 10px;
+  }
+
+  .faqQuestion {
+    font-size: 14px;
+  }
+
+  .faqAnswer {
+    font-size: 0.8rem;
+  }
+
+  .faqIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Very Small Mobile - up to 320px */
+@media (max-width: 320px) {
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .first {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .laptop img {
+    max-width: 280px;
+  }
+
+  .laptopScreen {
+    max-width: 200px;
+    height: 140px;
+  }
+
+  .laptopBase {
+    max-width: 220px;
+  }
+
+  .screenTitle {
+    font-size: 0.9rem;
+  }
+
+  .featureCard,
+  .featureCardFirst,
+  .featureCardThree {
+    padding: 15px 10px;
+  }
+
+  .featureIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .featureTitle {
+    font-size: 13px;
+  }
+
+  .featureDesc,
+  .featureDescThree {
+    font-size: 0.8rem;
+  }
+
+  .bottomTitle {
+    font-size: 1.2rem;
   }
 }
