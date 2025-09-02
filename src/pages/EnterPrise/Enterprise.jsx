@@ -6,7 +6,6 @@ import {
   Users,
   Headphones,
   MessageSquare,
-  BarChart3,
 } from "lucide-react";
 import styles from "./EnterpriseDashboard.module.css";
 import laptop from "../../assets/Macbook Pro.png";
