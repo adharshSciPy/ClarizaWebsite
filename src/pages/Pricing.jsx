@@ -220,10 +220,16 @@ const PricingPage = () => {
 
             <div className={styles.featuresTable}>
                 <div className={styles.tableHeader}>
-                    <div>Features</div>
-                    <div>Starter</div>
-                    <div>Pro</div>
-                    <div>Enterprise</div>
+                    <div><p>Features</p></div>
+                    <div>
+                        <p>Starter</p>
+                        <button>Download For Windows</button>
+                    </div>
+
+                    <div><p>Pro</p>
+                        <button>Download For Windows</button></div>
+                    <div><p>Enterprise</p>
+                        <button>Talk to Sales</button></div>
                 </div>
 
                 {features.map((feature, index) => (
@@ -284,7 +290,7 @@ const PricingPage = () => {
                                 feature.starter
                             )}
                         </div>
-                       <div className={styles.featureValue}>
+                        <div className={styles.featureValue}>
                             {typeof feature.pro === 'boolean' ? (
                                 feature.pro ? (
                                     <span className={styles.check}><CheckIcon /></span>
