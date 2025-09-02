@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Pricing.module.css";
 import laptop from "../assets/MacBookPro14(1).png"
 import Icon1 from "../assets/Icon1.png"
@@ -12,6 +12,26 @@ import { Link } from "react-router-dom"
 
 const PricingPage = () => {
     const [openIndex, setOpenIndex] = useState(null);
+    const [isYearly, setIsYearly] = useState(false);
+    const [price, setPrice] = useState(20);
+
+    // Animate price like a rolling meter
+    useEffect(() => {
+        const target = isYearly ? 200 : 20;
+        let start = price;
+        let startTime = null;
+        const duration = 1000; // 0.8s smooth roll
+
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const current = Math.floor(start + (target - start) * progress);
+            setPrice(current);
+            if (progress < 1) requestAnimationFrame(step);
+        };
+
+        requestAnimationFrame(step);
+    }, [isYearly]);
 
     const faqData = [
         {
@@ -29,6 +49,85 @@ const PricingPage = () => {
         },
     ];
 
+    const features = [
+        {
+            name: 'Custom system prompt',
+            starter: true,
+            pro: true,
+            enterprise: true
+        },
+        {
+            name: 'Pro Responses / day',
+            starter: 'Limited',
+            pro: 'Unlimited',
+            enterprise: 'Unlimited'
+        },
+        {
+            name: 'Token limit',
+            starter: 'Unlimited',
+            pro: 'Unlimited',
+            enterprise: 'Unlimited'
+        },
+        {
+            name: 'Model',
+            starter: 'GPT 4.1, GPT o4-mini',
+            pro: 'GPT 5, Claude 4',
+            enterprise: 'GPT-Enterprise'
+        },
+        {
+            name: 'Single sign-on (IDP)',
+            starter: false,
+            pro: false,
+            enterprise: true
+        }
+    ];
+
+    const platformFeatures = [
+        {
+            name: 'Conversations dashboard',
+            starter: false,
+            pro: true,
+            enterprise: true
+        },
+        {
+            name: 'Advanced analytics',
+            starter: false,
+            pro: false,
+            enterprise: true
+        },
+        {
+            name: 'Centralized billing',
+            starter: false,
+            pro: false,
+            enterprise: true
+        },
+        {
+            name: 'Custom integrations',
+            starter: false,
+            pro: false,
+            enterprise: true,
+            badge: 'Coming soon'
+        },
+        {
+            name: 'User provisioning & role-based access',
+            starter: false,
+            pro: false,
+            enterprise: true
+        }
+    ];
+
+    const CheckIcon = () => (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
+
+    const XIcon = () => (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
+
     return (
         <div className={styles.pricingContainer}>
             {/* Hero Section */}
@@ -39,6 +138,19 @@ const PricingPage = () => {
                     <br /> Get used to winning.
                 </h1>
             </section>
+
+            <div className={styles.toggleWrapper}>
+                <span className={!isYearly ? styles.activeLabel : ""}>Monthly</span>
+                <label className={styles.switch}>
+                    <input
+                        type="checkbox"
+                        checked={isYearly}
+                        onChange={() => setIsYearly(!isYearly)}
+                    />
+                    <span className={styles.slider}></span>
+                </label>
+                <span className={isYearly ? styles.activeLabel : ""}>Yearly</span>
+            </div>
 
             {/* Laptop Mockup with Plans */}
             <section className={styles.laptopSection}>
@@ -56,6 +168,7 @@ const PricingPage = () => {
                     <img src={Icon3} alt="icon" className={`${styles.icon} ${styles.icon3}`} />
                     <img src={Icon4} alt="icon" className={`${styles.icon} ${styles.icon4}`} />
                     <img src={Icon5} alt="icon" className={`${styles.icon} ${styles.icon5}`} />
+                    <img src={Icon5} alt="icon" className={`${styles.icon} ${styles.icon6}`} />
 
 
                     {/* Pricing Cards inside Laptop */}
@@ -69,8 +182,10 @@ const PricingPage = () => {
                         </div>
 
                         <div className={styles.planCard}>
-                            <h3>Pro</h3>
-                            <p>Advanced features for professionals and small teams.</p>
+                            <h3>${price}</h3>{" "}/{" "}{isYearly ? "Year" : "Month"}
+                            <p>
+                                Advanced features for professionals and small teams.
+                            </p>
                             <Link className={styles.planLink}>View dashboard</Link>
                         </div>
 
@@ -102,6 +217,99 @@ const PricingPage = () => {
                     </details>
                 ))}
             </section>
+
+            <div className={styles.featuresTable}>
+                <div className={styles.tableHeader}>
+                    <div>Features</div>
+                    <div>Starter</div>
+                    <div>Pro</div>
+                    <div>Enterprise</div>
+                </div>
+
+                {features.map((feature, index) => (
+                    <div key={index} className={styles.tableRow}>
+                        <div className={styles.featureName}>{feature.name}</div>
+                        <div className={styles.featureValue}>
+                            {typeof feature.starter === 'boolean' ? (
+                                feature.starter ? (
+                                    <span className={styles.check}><CheckIcon /></span>
+                                ) : (
+                                    <span className={styles.cross}><XIcon /></span>
+                                )
+                            ) : (
+                                feature.starter
+                            )}
+                        </div>
+                        <div className={styles.featureValue}>
+                            {typeof feature.pro === 'boolean' ? (
+                                feature.pro ? (
+                                    <span className={styles.check}><CheckIcon /></span>
+                                ) : (
+                                    <span className={styles.cross}><XIcon /></span>
+                                )
+                            ) : (
+                                feature.pro
+                            )}
+                        </div>
+                        <div className={styles.featureValue}>
+                            {typeof feature.enterprise === 'boolean' ? (
+                                feature.enterprise ? (
+                                    <span className={styles.check}><CheckIcon /></span>
+                                ) : (
+                                    <span className={styles.cross}><XIcon /></span>
+                                )
+                            ) : (
+                                feature.enterprise
+                            )}
+                        </div>
+                    </div>
+                ))}
+
+                <div className={styles.sectionTitle}>Platform</div>
+
+                {platformFeatures.map((feature, index) => (
+                    <div key={index} className={styles.tableRow}>
+                        <div className={styles.featureName}>
+                            {feature.name}
+                            {feature.badge && <span className={styles.featureBadge}>{feature.badge}</span>}
+                        </div>
+                        <div className={styles.featureValue}>
+                            {typeof feature.starter === 'boolean' ? (
+                                feature.starter ? (
+                                    <span className={styles.check}><CheckIcon /></span>
+                                ) : (
+                                    <span className={styles.cross}><XIcon /></span>
+                                )
+                            ) : (
+                                feature.starter
+                            )}
+                        </div>
+                       <div className={styles.featureValue}>
+                            {typeof feature.pro === 'boolean' ? (
+                                feature.pro ? (
+                                    <span className={styles.check}><CheckIcon /></span>
+                                ) : (
+                                    <span className={styles.cross}><XIcon /></span>
+                                )
+                            ) : (
+                                feature.pro
+                            )}
+                        </div>
+                        <div className={styles.featureValue}>
+                            {typeof feature.enterprise === 'boolean' ? (
+                                feature.enterprise ? (
+                                    <span className={styles.check}><CheckIcon /></span>
+                                ) : (
+                                    <span className={styles.cross}><XIcon /></span>
+                                )
+                            ) : (
+                                feature.enterprise
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
         </div>
     );
 };
