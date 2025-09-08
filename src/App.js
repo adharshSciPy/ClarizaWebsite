@@ -4,6 +4,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Enterprise from "./pages/EnterPrise/Enterprise"
+import Support from "./pages/Support.jsx";
 
 import PricingPage from "./pages/Pricing.jsx";
 import Careers from "./pages/Careers";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/careers" element={<Careers/>}/>
         <Route path="/enterprise" element={<Enterprise/>} />
+        <Route path="/support" element={<Support/>} />
         <Route path="/help-center" element={<h1>Help Center</h1>} />
       </Routes>
       <Footer />
