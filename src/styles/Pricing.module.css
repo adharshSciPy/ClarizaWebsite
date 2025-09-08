@@ -94,7 +94,7 @@ button:hover {
   transform: translateX(-50%);
   font-size: 2rem;
   font-weight: 700;
-  color: white;
+ color: var(--text-color);
   z-index: 3;
   text-align: center;
 }
