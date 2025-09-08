@@ -7,6 +7,7 @@ import Enterprise from "./pages/EnterPrise/Enterprise"
 
 import PricingPage from "./pages/Pricing.jsx";
 import Careers from "./pages/Careers";
+import HelpCentre from "./pages/HelpCentre.jsx";
 
 function App() {
 
@@ -42,7 +43,7 @@ function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/careers" element={<Careers/>}/>
         <Route path="/enterprise" element={<Enterprise/>} />
-        <Route path="/help-center" element={<h1>Help Center</h1>} />
+        <Route path="/help-center" element={<HelpCentre/>} />
       </Routes>
       <Footer />
     </div>
