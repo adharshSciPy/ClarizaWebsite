@@ -1,0 +1,392 @@
+.wrapper {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------------- Header ---------------- */
+.header small {
+  color: #7a5af8;
+  font-weight: 600;
+  font-size: 15px;
+  display: block;
+  margin-bottom: 6px;
+}
+.header h1 {
+  margin: 0 0 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+/* ---------------- Search bar ---------------- */
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto 10px;
+  /* background: rgba(20, 10, 40, 0.75); */
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 1px solid rgba(122, 90, 248, 0.4);
+  box-shadow: 0 0 25px rgba(122, 90, 248, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.searchBox:focus-within {
+  border-color: rgba(122, 90, 248, 0.7);
+  box-shadow: 0 0 35px rgba(122, 90, 248, 0.6);
+}
+.searchBox input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 16px;
+}
+.searchIcon {
+  margin-right: 14px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+/* ---------------- Content container ---------------- */
+.contentBox {
+  background: transparent;
+  padding: 20px 0 80px;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+.outerBox {
+  width: 100%;
+  border-radius: 20px;
+  padding: 60px 40px;
+  margin-top: 40px;
+  max-width: 1200px;
+   background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(122, 90, 248, 0.3);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:var(--box-shadow)
+    /* inset 0 0.5px 0 rgba(255, 255, 255, 0.08),
+    0 -2px 40px rgba(122, 90, 248, 0.25),
+    0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease; */
+}
+.outerBox:hover {
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.12),
+    0 -2px 50px rgba(122, 90, 248, 0.35),
+    0 15px 50px rgba(0, 0, 0, 0.7);
+  border-color: rgba(122, 90, 248, 0.6);
+}
+
+/* ---------------- Section titles ---------------- */
+.sectionTitle {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 50px 0 70px;
+  color: #7a5af8;
+  text-align: center;
+}
+
+/* ---------------- Categories ---------------- */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 🔹 Always 4 cards per row */
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.card {
+  height: 362px;
+  border-radius: 20px;
+  padding: 36px 28px;
+  border: 1px solid rgba(122, 90, 248, 0.3);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 0 18px rgba(122, 90, 248, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              border-color 0.3s ease;
+}
+
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 28px rgba(122, 90, 248, 0.4);
+  border-color: rgba(122, 90, 248, 0.5);
+}
+
+.cardIcon {
+  font-size: 40px;
+  color: var(--accent-color);
+  margin-bottom: 12px;
+}
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+.card p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+.card small {
+  font-size: 13px;
+  opacity: 0.65;
+  color: var(--text-color);
+}
+@media (max-width: 1200px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .categories {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
+}
+
+/* ---------------- Articles ---------------- */
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+@media (min-width: 1200px) {
+  .articles {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+.articleCard {
+  border-radius: 30px;
+  padding: 28px;
+  /* background: rgba(10, 4, 25, 0.8); */
+  border: 1px solid rgba(122, 90, 248, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 18px rgba(122, 90, 248, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease;
+  width: 100%;
+  max-width: 686px;
+  min-height: 260px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.articleCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 28px rgba(122, 90, 248, 0.5);
+  border-color: rgba(122, 90, 248, 0.6);
+}
+.articleCard h3 {
+  font-size: 36px;
+  margin-bottom: 14px;
+  color: #7a5af8;
+  font-weight: 400;
+}
+.articleCard p {
+  font-size: 14px;
+  margin-bottom: 18px;
+  opacity: 0.85;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+.articleCard a {
+  font-size: 14px;
+  color: #7a5af8;
+  font-weight: 500;
+  text-decoration: none;
+}
+.articleCard a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- Floating Icons ---------------- */
+.floatIcon {
+  position: absolute;
+  width: 211px;
+  height: 106px;
+  object-fit: contain;
+  opacity: 0.95;
+  animation: float 6s ease-in-out infinite;
+  border-radius: 30px;
+}
+.icon1 {
+  position: absolute;
+  top: 34.5%;
+  left: 25.5%;
+  transform: rotate(298deg);
+   width: 121px;
+  height: 121px;
+}
+.icon5 {
+  position: absolute;
+  top: 91%;
+  left: 53.5%;
+  transform: rotate(70deg);
+   width: 211px;
+  height: 160px;
+}
+.icon3 {
+  position: absolute;
+  top: 34.5%;
+  right: 2%;
+  transform: rotate(356deg);
+  width: 218px;
+  height: 164px;
+}
+.icon6 {
+  position: absolute;
+  top: 35%;
+  left: -1%;
+  transform: rotate(293deg);
+  width: 211px;
+  height:160px;
+
+
+  
+}
+.icon2{
+  position: absolute;
+  top: 91%;
+  right: 1%;
+  transform: rotate(45.54deg);
+  width: 121px;
+  height: 121px;
+}
+.icon4 {
+  position: absolute;
+  top: 91%;
+  left: 25%;
+  transform: rotate(355deg);
+  width: 211px;
+  height:160px;
+
+  
+}
+
+
+/* @keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+} */
+/* ---------------- FAQ Section ---------------- */
+.faqWrapper {
+  background: var(--bg-gradient2);
+  padding: 80px 20px;
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faqContainer {
+  border-radius: 20px;
+  padding: 60px 50px;
+  max-width: 1100px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  /* border: 1px solid rgba(122, 90, 248, 0.35); */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* .faqContainer:hover {
+  box-shadow: var(--box-shadow);
+
+} */
+
+.faqTitle {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #7a5af8;
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba(122, 90, 248, 0.35);
+  padding: 22px 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* .faqItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+} */
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.chevron {
+  font-size: 16px;
+  color: #7a5af8;
+  transition: transform 0.35s ease;
+}
+
+/* Rotate chevron when active */
+.active .chevron {
+  transform: rotate(180deg);
+}
+
+/* Accordion animation for answer */
+.faqAnswer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease, opacity 0.35s ease;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-top: 0;
+  padding-right: 6px;
+}
+
+.active .faqAnswer {
+  max-height: 600px; /* large enough to fit content */
+  opacity: 1;
+  margin-top: 14px;
+}
+
