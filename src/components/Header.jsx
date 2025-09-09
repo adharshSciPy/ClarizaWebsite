@@ -18,7 +18,7 @@ export default function Header({ theme, setTheme }) {
           <Link to="/pricing">Pricing</Link>
           <Link to="/careers">Careers</Link>
           <Link to="/enterprise">Enterprise</Link>
-          <Link to="/help-centre">Help Center</Link>
+          <Link to="/help-center">Help Center</Link>
         </nav>
 
         {/* ✅ Action Buttons */}
