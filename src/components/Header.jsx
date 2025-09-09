@@ -16,9 +16,9 @@ export default function Header({ theme, setTheme }) {
         {/* ✅ Navigation Links */}
         <nav className={styles["nav-links"]}>
           <Link to="/pricing">Pricing</Link>
-          <Link to="#">Careers</Link>
+          <Link to="/careers">Careers</Link>
           <Link to="/enterprise">Enterprise</Link>
-          <Link to="#">Help Center</Link>
+          <Link to="/help-centre">Help Center</Link>
         </nav>
 
         {/* ✅ Action Buttons */}
