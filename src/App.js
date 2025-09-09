@@ -9,6 +9,7 @@ import Support from "./pages/Support.jsx";
 import PricingPage from "./pages/Pricing.jsx";
 import Careers from "./pages/Careers";
 import HelpCentre from "./pages/HelpCentre.jsx";
+import Article from "./pages/Article.jsx";
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/enterprise" element={<Enterprise/>} />
         <Route path="/support" element={<Support/>} />
         <Route path="/help-center" element={<HelpCentre/>} />
+        <Route path="/article" element={<Article/>}/>
       </Routes>
       <Footer />
     </div>

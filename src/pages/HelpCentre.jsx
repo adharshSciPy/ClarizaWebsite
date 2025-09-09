@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/helpCentre.module.css";
 import { Search } from "lucide-react";
+import { Link} from "react-router-dom";
 
 // Import your floating icons
 import Icon1 from "../assets/Icon1.png";
@@ -104,6 +105,7 @@ const HelpCentre = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -145,7 +147,7 @@ const HelpCentre = () => {
                 <div key={article.id} className={styles.articleCard}>
                   <h3>{article.title}</h3>
                   <p>{article.content}</p>
-                  <a href="#">Read more</a>
+                  <Link to="/article">Read more</Link>
                 </div>
               ))}
             </div>
