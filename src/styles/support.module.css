@@ -129,11 +129,11 @@
 
 .articleItem:hover{
  border-color: rgba(89, 29, 221, 0.4);
-  box-shadow: 0 25px 70px rgba(89, 29, 221, 0.25),
-    0 15px 45px rgba(0, 0, 0, 0.5),
-    0 8px 25px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 25px 70px rgba(89, 29, 221, 0.1),
+    0 15px 45px rgba(0, 0, 0, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.01),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .articleContent {

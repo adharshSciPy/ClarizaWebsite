@@ -21,7 +21,26 @@ function Support() {
     {
       title: "Moving Cluely: Screen Position and Different Displays or Monitors",
       description: "Change Cluely's position with the dot bar lets for drag & drop or going to Profile > Settings > Change Display."
-    }
+    },
+    {
+      title:"How to Change Languages"
+    },
+    {
+      title:"How to Use Live Insights & Default Actions",
+      description:"From one-click follow up questions,recaps,fact checking,and more"
+    },
+    {
+      title:"Live Insights:Using Smart Mode",
+      description:"activate web search,details,and complex reasoning in the click of a button"
+    },
+    {
+      title:"How to Copy Transcript",
+      description:"Need the full transcript"
+    },
+    {
+      title:"Cluely Desktop App Guide",
+      description:"Need the full transcript"
+    },
   ];
 
   const getArticleItemClass = (index) => {
