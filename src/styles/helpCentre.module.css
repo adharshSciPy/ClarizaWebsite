@@ -390,3 +390,14 @@
   margin-top: 14px;
 }
 
+@media (max-width: 1200px) {
+  .floatIcon,
+  .icon1,
+  .icon2,
+  .icon3,
+  .icon4,
+  .icon5,
+  .icon6 {
+    display: none !important;
+  }
+}
