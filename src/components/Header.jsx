@@ -15,10 +15,10 @@ export default function Header({ theme, setTheme }) {
 
         {/* ✅ Navigation Links */}
         <nav className={styles["nav-links"]}>
-          <Link to="#">Pricing</Link>
-          <Link to="#">Careers</Link>
-          <Link to="#">Enterprise</Link>
-          <Link to="#">Help Center</Link>
+          <Link to="/pricing">Pricing</Link>
+          <Link to="/careers">Careers</Link>
+          <Link to="/enterprise">Enterprise</Link>
+          <Link to="/help-center">Help Center</Link>
         </nav>
 
         {/* ✅ Action Buttons */}

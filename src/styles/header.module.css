@@ -1,11 +1,11 @@
 /* Base Header Styles */
 .header {
   width: 100%;
-  background: var(--bg-color);
+  background: var(--header-color);
   color: var(--text-color);
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
   position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   transition: all 0.3s ease;
   overflow-x: hidden;
 }
@@ -58,7 +58,7 @@
   border: 1px solid var(--text-color);
   background: transparent;
   color: var(--text-color);
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   white-space: nowrap;
@@ -82,12 +82,15 @@
   border: 1px solid var(--border-color);
   cursor: pointer;
   color: var(--text-color);
-  border-radius: 4px;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  padding: 8px 20px;
+  width: 65px;
+  height: 41px;
 }
 
 .theme-toggle:hover,

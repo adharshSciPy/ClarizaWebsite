@@ -1,0 +1,169 @@
+.careers {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-color);
+}
+
+.subtitle {
+  /* color: var(--primary-color); */
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #591ddd;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.openRoles {
+  /* color: var(--primary-color); */
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+  color: #591ddd;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 2rem;
+}
+
+
+.filterDropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  text-align: left;
+  box-shadow: var(--box-shadow);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.filterDropdown:hover,
+.filterDropdown:focus {
+  outline: none;
+  border-color: var(--border-color);
+  box-shadow: var(--box-shadow), 0 0 12px rgba(122, 90, 248, 0.4);
+}
+
+.filterDropdown option {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-weight: 400;
+  padding: 0.6rem 1rem;
+}
+
+.filterDropdown option:hover {
+  background: var(--border-color);
+  color: #fff;
+}
+
+.resultCount {
+  margin: 1rem 0 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.95;
+}
+
+/* Job List */
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.jobCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Fixed: Single box-shadow declaration combining both effects */
+  box-shadow: var(--box-shadow), 0 0 12px rgba(122, 90, 248, 0.3);
+}
+
+.jobCard > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.jobCard:hover {
+  transform: translateY(-3px);
+  /* Enhanced glow on hover */
+  box-shadow: var(--box-shadow), 0 0 20px rgba(122, 90, 248, 0.5);
+  border-color: rgba(122, 90, 248, 0.6);
+}
+
+.jobCard h4 {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.jobCard p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Category pill */
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid var(--span-border-color);
+  color: var(--text-color);
+}
+
+/* Job type pill (right side) */
+.type {
+  background: transparent;
+  border: 1px solid var(--span-border-color);
+  color: var(--text-color);
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.type:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .jobCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}
