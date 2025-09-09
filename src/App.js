@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 function App() {
  
@@ -38,6 +39,9 @@ function App() {
         <Route path="/careers" element={<h1>Careers Page</h1>} />
         <Route path="/enterprise" element={<h1>Enterprise Page</h1>} />
         <Route path="/help-center" element={<h1>Help Center</h1>} />
+        <Route path="/help-center" element={<h1>Help Center</h1>} />
+        <Route path="/help-center" element={<h1>Help Center</h1>} />
+        <Route path="/" element={<Home/>} />
       </Routes>
       <Footer/>
     </div>
