@@ -1,11 +1,11 @@
 import React from 'react'
 import { BarChart3, Download, MessageCircle, Plus } from 'lucide-react';
 import "../styles/home.css"
-
+import laptop1 from "../assets/Macbook Pro.png"
 
 function Home() {
   return (
-    <div className="page-container" data-theme="dark">
+     <div className="page-container" data-theme="dark">
       {/* Header Notification */}
       <header className="header">
         <div className="notification-banner">
@@ -204,6 +204,184 @@ function Home() {
             <div className="company ted">TED</div>
           </div>
         </div>
+
+        {/* Meeting Insights Section */}
+        <section className="meeting-insights-section">
+          <div className="meeting-insights-container">
+            {/* Header */}
+            <div className="insights-header">
+              <h3 className="insights-subtitle">Live meeting insights</h3>
+              <h2 className="insights-title">
+                Cluely helps you during meetings, so you can stay<br />
+                focused on the conversation
+              </h2>
+            </div>
+
+            {/* Laptop Mockup */}
+            <div className="laptop-container">
+  <div className="laptop">
+    {/* Laptop Screen as Image */}
+    <div className="laptop-screen-wrapper">
+      <img 
+        src={laptop1} 
+        alt="Laptop screen showing AI assistant interface"
+        className="laptop-screen-image"
+      />
+    </div>
+
+    {/* Laptop Base */}
+  </div>
+</div>
+          </div>
+
+          {/* Background Elements */}
+          <div className="insights-bg-elements">
+            <div className="insights-blur-1"></div>
+            <div className="insights-blur-2"></div>
+          </div>
+        </section>
+        <section className="features-section">
+          <div className="features-container">
+            {/* Features Grid */}
+            <div className="features-grid">
+              {/* Live notetaking */}
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <MessageCircle size={24} />
+                </div>
+                <h3 className="feature-title">Live notetaking</h3>
+                <p className="feature-description">
+                  Our Analytics Dashboard provides a clear and intuitive interface 
+                  for you to easily analyze your data. From customizable graphs to 
+                  real-time data updates, our dashboard offers everything you 
+                  need to gain valuable insights.
+                </p>
+                <button className="feature-link">View dashboard</button>
+              </div>
+
+              {/* Instant Answers */}
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <Download size={24} />
+                </div>
+                <h3 className="feature-title">Instant Answers</h3>
+                <p className="feature-description">
+                  Reward your customers and incentivize engagement with our 
+                  innovative digital credit tokens. Our tokens can be customized to 
+                  match your branding and are a flexible and scalable way to drive 
+                  customer loyalty and encourage repeat business.
+                </p>
+                <button className="feature-link">View tokens</button>
+              </div>
+
+              {/* Real-time web search */}
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <MessageCircle size={24} />
+                </div>
+                <h3 className="feature-title">Real-time web search</h3>
+                <p className="feature-description">
+                  Our Analytics Dashboard provides a clear and intuitive interface 
+                  for you to easily analyze your data. From customizable graphs to 
+                  real-time data updates, our dashboard offers everything you 
+                  need to gain valuable insights.
+                </p>
+                <button className="feature-link">View dashboard</button>
+              </div>
+
+              {/* Records your meetings */}
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <Download size={24} />
+                </div>
+                <h3 className="feature-title">Records your meetings</h3>
+                <p className="feature-description">
+                  Reward your customers and incentivize engagement with our 
+                  innovative digital credit tokens. Our tokens can be customized to 
+                  match your branding and are a flexible and scalable way to drive 
+                  customer loyalty and encourage repeat business.
+                </p>
+                <button className="feature-link">View tokens</button>
+              </div>
+
+              {/* Code collaboration */}
+              <div className="feature-card feature-card-large">
+                <div className="feature-content">
+                  <div className="feature-icon">
+                    <MessageCircle size={24} />
+                  </div>
+                  <h3 className="feature-title">Code collaboration</h3>
+                  <p className="feature-description">
+                    Our advanced code synchronization technology ensures that 
+                    your data is always up-to-date and accurate, no matter where it's 
+                    coming from. Whether you're integrating data from multiple 
+                    sources or working with a team of developers, our 
+                    synchronization technology makes it easy to collaborate and 
+                    ensure that your data is consistent and reliable.
+                  </p>
+                  <button className="feature-link">View code collaboration</button>
+                </div>
+                
+                {/* Code Editor Mockup */}
+                <div className="code-editor">
+                  <div className="code-header">
+                    <span className="code-title">DigitalToken.js</span>
+                  </div>
+                  <div className="code-content">
+                    <div className="code-line">
+                      <span className="line-number">1</span>
+                      <span className="code-text">
+                        <span className="keyword">function</span> <span className="function">addNumbersToTokens</span>(<span className="param">nums</span>) {'{'}
+                      </span>
+                    </div>
+                    <div className="code-line">
+                      <span className="line-number">2</span>
+                      <span className="code-text">
+                        &nbsp;&nbsp;<span className="keyword">let</span> <span className="variable">sum</span> = <span className="number">0</span>; <span className="variable">name</span>;
+                      </span>
+                    </div>
+                    <div className="code-line">
+                      <span className="line-number">3</span>
+                      <span className="code-text">
+                        &nbsp;&nbsp;<span className="keyword">for</span> <span className="variable">token</span> = {'{'}
+                      </span>
+                    </div>
+                    <div className="code-line">
+                      <span className="line-number">4</span>
+                      <span className="code-text">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span className="property">value</span>: <span className="string">sum</span>,
+                      </span>
+                    </div>
+                    <div className="code-line">
+                      <span className="line-number">5</span>
+                      <span className="code-text">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span className="property">value</span>: <span className="string">sum</span>,
+                      </span>
+                    </div>
+                    <div className="code-line">
+                      <span className="line-number">6</span>
+                      <span className="code-text">
+                        &nbsp;&nbsp;<span className="keyword">return</span> <span className="variable">token</span>;
+                      </span>
+                    </div>
+                    <div className="code-line">
+                      <span className="line-number">7</span>
+                      <span className="code-text">
+                        {'}'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Background Elements */}
+          <div className="features-bg-elements">
+            <div className="features-blur-1"></div>
+            <div className="features-blur-2"></div>
+          </div>
+        </section>
       </main>
 
       {/* Background Elements */}
@@ -211,7 +389,9 @@ function Home() {
         <div className="bg-blur-1"></div>
         <div className="bg-blur-2"></div>
       </div>
+      
     </div>
+    
   );
 }
 
