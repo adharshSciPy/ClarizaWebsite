@@ -129,7 +129,14 @@ button:hover {
   gap: 1.5rem;
   z-index: 3;
 }
-
+.ss h1{
+  font-size:60px;
+  text-align: center;
+}
+.ss p{
+  text-align: center;
+  line-height: 25px;
+}
 .planCard {
   flex: 1;
   min-width: 250px;
